@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Project | Rohail Bhatti</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .proj-hero { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:2.2rem 2.4rem; margin-bottom:2rem; }
+    .proj-hero-top { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem; }
+    .proj-title { font-family:var(--display); font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--text); }
+    .proj-meta { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
+    .meta-chip { font-family:var(--mono); font-size:.68rem; padding:.25rem .7rem; border:1px solid var(--border); border-radius:3px; color:var(--muted); }
+    .proj-desc-full { font-size:.96rem; color:var(--muted); line-height:1.88; }
+    .section-sub { font-family:var(--display); font-size:1.25rem; font-weight:700; color:var(--text); margin:2.2rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+    .feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-bottom:1.8rem; }
+    .feature-item { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:1.2rem 1.4rem; }
+    .feature-icon { font-size:1.4rem; margin-bottom:.5rem; }
+    .feature-name { font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:.3rem; }
+    .feature-desc { font-size:.84rem; color:var(--muted); line-height:1.6; }
+    pre {
+      background: #0a0f1e; border:1px solid var(--border); border-radius:6px;
+      padding:1.8rem 2rem; overflow-x:auto; font-family:var(--mono);
+      font-size:.82rem; line-height:1.75; color:#94a3b8;
+      margin-bottom:1.5rem;
+    }
+    .kw  { color:#818cf8; }
+    .fn  { color:#38bdf8; }
+    .str { color:#34d399; }
+    .cm  { color:#475569; font-style:italic; }
+    .num { color:#fbbf24; }
+    .btn-row { display:flex; gap:.85rem; flex-wrap:wrap; margin-top:2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">RB<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#profile">Profile</a></li>
+      <li><a href="index.html#skills">Resume</a></li>
+      <li><a href="index.html#work">Work Samples</a></li>
+      <li><a href="index.html#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <a href="index.html#work" class="back-link">← Back to Work Samples</a>
+
+    <div class="proj-hero">
+      <div class="proj-hero-top">
+        <div>
+          <p class="eyebrow">COMP 1250 — Introduction to Programming</p>
+          <h1 class="proj-title">🐍 Interactive Python Program</h1>
+          <div class="proj-meta">
+            <span class="meta-chip">Python 3</span>
+            <span class="meta-chip">George Brown Polytechnic</span>
+            <span class="meta-chip">Spring 2025</span>
+            <span class="meta-chip">Grade: A+</span>
+          </div>
+        </div>
+        <a href="https://github.com/rohailbt" target="_blank" class="btn btn-ghost btn-sm">View on GitHub →</a>
+      </div>
+      <p class="proj-desc-full">
+        A menu-driven Python console application that demonstrates foundational programming concepts through 
+        an interactive, user-facing interface. The program greets the user by name and presents a persistent 
+        main menu with five options, each targeting a different core concept from the COMP 1250 curriculum — 
+        conditionals, loops, arithmetic, data types, and output formatting. The project was developed as a 
+        personal programming challenge to consolidate all topics covered in the course.
+      </p>
+    </div>
+
+    <h2 class="section-sub">Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🔄</div>
+        <p class="feature-name">Persistent Menu Loop</p>
+        <p class="feature-desc">A while True loop keeps the program running until the user selects Exit, demonstrating infinite loop control.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔢</div>
+        <p class="feature-name">Arithmetic Calculator</p>
+        <p class="feature-desc">Accepts two numbers and an operator (+, −, ×, ÷), evaluates the expression using nested conditionals, and prints the result.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⚖️</div>
+        <p class="feature-name">Number Comparator</p>
+        <p class="feature-desc">Compares two integer inputs and returns whether the first is greater, lesser, or equal — with an invalid-input guard.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔁</div>
+        <p class="feature-name">While &amp; For Loops</p>
+        <p class="feature-desc">Demonstrates both loop types with predetermined and user-defined ranges, including countdown and increment logic.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <p class="feature-name">Input Validation</p>
+        <p class="feature-desc">Handles invalid operator input and type conversions with int() casting, guarding against incorrect user entries.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👤</div>
+        <p class="feature-name">Personalised Greeting</p>
+        <p class="feature-desc">Prompts for a username before entering the menu loop, demonstrating string input and concatenation.</p>
+      </div>
+    </div>
+
+    <h2 class="section-sub">Source Code</h2>
+    <pre><span class="cm"># Interactive Python Program — COMP 1250 | Rohail Bhatti</span>
+
+<span class="cm"># Personalised greeting on launch</span>
+username = <span class="fn">input</span>(<span class="str">"Enter your username: "</span>)
+<span class="fn">print</span>(<span class="str">"Hello "</span> + username + <span class="str">"!"</span>)
+
+<span class="kw">while</span> <span class="kw">True</span>:
+    <span class="fn">print</span>(<span class="str">"\nWelcome to the main menu"</span>)
+    <span class="fn">print</span>(<span class="str">"1. Print Hello, World!"</span>)
+    <span class="fn">print</span>(<span class="str">"2. Work with conditionals"</span>)
+    <span class="fn">print</span>(<span class="str">"3. Work with loops"</span>)
+    <span class="fn">print</span>(<span class="str">"4. Work with data types"</span>)
+    <span class="fn">print</span>(<span class="str">"5. Exit"</span>)
+    decision = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Please choose from 1 to 5: "</span>))
+
+    <span class="kw">if</span> decision == <span class="num">1</span>:
+        <span class="fn">print</span>(<span class="str">"Hello World!"</span>)
+
+    <span class="kw">elif</span> decision == <span class="num">2</span>:
+        choice1 = <span class="fn">input</span>(<span class="str">"Math expression or bigger number? "</span>)
+        <span class="kw">if</span> choice1.<span class="fn">lower</span>() == <span class="str">"math"</span>:
+            number1 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter first number: "</span>))
+            number2 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter second number: "</span>))
+            operator = <span class="fn">input</span>(<span class="str">"Select operator (+, -, *, /): "</span>)
+            <span class="kw">if</span>   operator == <span class="str">"+"</span>: <span class="fn">print</span>(<span class="str">"Sum:"</span>,     number1 + number2)
+            <span class="kw">elif</span> operator == <span class="str">"-"</span>: <span class="fn">print</span>(<span class="str">"Diff:"</span>,    number2 - number1)
+            <span class="kw">elif</span> operator == <span class="str">"*"</span>: <span class="fn">print</span>(<span class="str">"Product:"</span>, number1 * number2)
+            <span class="kw">elif</span> operator == <span class="str">"/"</span>: <span class="fn">print</span>(<span class="str">"Quotient:"</span>,number1 / number2)
+            <span class="kw">else</span>: <span class="fn">print</span>(<span class="str">"Invalid operator"</span>)
+        <span class="kw">elif</span> choice1.<span class="fn">lower</span>() == <span class="str">"bigger"</span>:
+            num1 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter first number: "</span>))
+            num2 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter second number: "</span>))
+            <span class="kw">if</span>   num1 > num2: <span class="fn">print</span>(<span class="str">"First number is greater"</span>)
+            <span class="kw">elif</span> num1 < num2: <span class="fn">print</span>(<span class="str">"First number is lesser"</span>)
+            <span class="kw">else</span>:             <span class="fn">print</span>(<span class="str">"Numbers are equal"</span>)
+
+    <span class="kw">elif</span> decision == <span class="num">3</span>:
+        choice2 = <span class="fn">input</span>(<span class="str">"While or for loops? "</span>)
+        <span class="kw">if</span> choice2.<span class="fn">lower</span>() == <span class="str">"while"</span>:
+            while_num = <span class="num">10</span>
+            <span class="kw">while</span> while_num >= <span class="num">2</span>:
+                while_num -= <span class="num">1</span>
+                <span class="fn">print</span>(while_num)
+        <span class="kw">elif</span> choice2.<span class="fn">lower</span>() == <span class="str">"for"</span>:
+            <span class="kw">for</span> num <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):
+                <span class="fn">print</span>(num)
+
+    <span class="kw">elif</span> decision == <span class="num">5</span>:
+        <span class="fn">print</span>(<span class="str">"Goodbye, "</span> + username + <span class="str">"!"</span>)
+        <span class="kw">break</span></pre>
+
+    <div class="btn-row">
+      <a href="https://github.com/rohailbt" target="_blank" class="btn">View on GitHub →</a>
+      <a href="index.html#work" class="btn btn-ghost">← All Projects</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Rohail Bhatti &nbsp;·&nbsp; <a href="https://github.com/rohailbt" target="_blank">github.com/rohailbt</a> &nbsp;·&nbsp; <a href="mailto:rohailbt@gmail.com">rohailbt@gmail.com</a></p>
+    <p class="sub">© 2026 &nbsp;·&nbsp; George Brown Polytechnic</p>
+  </footer>
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }); },{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

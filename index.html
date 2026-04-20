@@ -4,130 +4,434 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rohail Bhatti | Computer Systems Technician</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --bg:#07090f;--bg2:#0e1220;--bg3:#141926;
-      --accent:#38bdf8;--accent2:#818cf8;
-      --gold:#fbbf24;--green:#34d399;
-      --text:#e2e8f8;--muted:#64748b;
-      --border:rgba(56,189,248,0.10);
-      --mono:'Share Tech Mono', monospace;
-      --body:'Outfit', sans-serif;
-      --display:'Syne', sans-serif;
+    /* ── HERO ─────────────────────────────── */
+    #profile {
+      min-height: 100vh; position: relative; z-index: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      max-width: 1020px; margin: 0 auto; padding: 80px 2.5rem 70px;
     }
-
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:var(--body)}
-
-    nav{
-      position:fixed;width:100%;top:0;z-index:100;
-      background:#0e1220;padding:15px 40px;
-      display:flex;justify-content:space-between;
+    .hero-kicker {
+      font-family: var(--mono); font-size: .76rem; color: var(--accent);
+      letter-spacing: .2em; margin-bottom: 1.4rem;
+      display: flex; align-items: center; gap: .75rem;
     }
-
-    nav a{
-      color:var(--muted);text-decoration:none;margin-left:20px;
-      font-size:12px;text-transform:uppercase;
+    .hero-kicker::before { content:''; display:block; width:28px; height:1px; background:var(--accent); opacity:.5; }
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(3.6rem, 9vw, 7.2rem);
+      font-weight: 800; letter-spacing: -.025em; line-height: .88; margin-bottom: 2rem;
     }
-
-    section{max-width:1000px;margin:auto;padding:120px 20px}
-
-    h1{font-size:60px} h2{font-size:40px}
-
-    .btn{
-      display:inline-block;background:var(--accent);color:#000;
-      padding:10px 20px;margin-right:10px;text-decoration:none;
-      font-weight:bold
+    .hero-name .ln { color: var(--accent); display: block; }
+    .hero-bio {
+      font-size: 1.04rem; color: var(--muted);
+      max-width: 640px; line-height: 1.92; margin-bottom: 1.9rem;
     }
+    .chip-row { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 2.4rem; }
+    .chip {
+      font-family: var(--mono); font-size: .66rem; padding: .3rem .85rem;
+      border: 1px solid rgba(56,189,248,.14); color: var(--accent);
+      letter-spacing: .09em; border-radius: 3px; background: rgba(56,189,248,.04);
+      transition: all .2s;
+    }
+    .chip:hover { background: rgba(56,189,248,.1); border-color: rgba(56,189,248,.32); }
+    .btn-row { display: flex; gap: .85rem; flex-wrap: wrap; }
+    .contact-strip {
+      display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.9rem;
+      font-family: var(--mono); font-size: .73rem; color: var(--muted);
+    }
+    .contact-strip a { color: var(--muted); text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: .4rem; }
+    .contact-strip a:hover { color: var(--accent); }
+    .ico { color: var(--accent); font-style: normal; }
 
-    .card{
-      background:var(--bg2);padding:20px;margin-bottom:20px;
-      border:1px solid #1e293b
+    /* ── SKILLS ───────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .skill-list { list-style: none; }
+    .skill-list li { display:flex; align-items:flex-start; gap:.5rem; padding:.25rem 0; font-size:.9rem; color:var(--muted); }
+    .skill-list li::before { content:'›'; color:var(--accent); font-size:.9rem; line-height:1.6; flex-shrink:0; }
+    .skill-list li strong { color:var(--text); font-weight:600; }
+
+    /* ── EXPERIENCE ───────────────────────── */
+    .exp-block { padding:1.5rem 0; border-bottom:1px solid var(--border); }
+    .exp-block:first-child { padding-top:0; }
+    .exp-block:last-child { border-bottom:none; padding-bottom:0; }
+    .exp-meta { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:.4rem; margin-bottom:.15rem; }
+    .exp-role { font-family:var(--display); font-size:1.12rem; font-weight:700; color:var(--text); }
+    .exp-date { font-family:var(--mono); font-size:.7rem; color:var(--accent); letter-spacing:.1em; margin-top:.1rem; }
+    .exp-org { color:var(--muted); font-size:.86rem; margin-bottom:.72rem; }
+    .exp-list { list-style:none; }
+    .exp-list li { position:relative; padding:.22rem 0 .22rem 1.3rem; font-size:.9rem; color:var(--muted); }
+    .exp-list li::before { content:'—'; position:absolute; left:0; top:.3rem; color:var(--accent); font-size:.7rem; }
+    .add-exp { margin-top:.9rem; padding-top:.9rem; border-top:1px solid var(--border); }
+    .add-label { font-family:var(--mono); font-size:.66rem; letter-spacing:.22em; color:var(--muted); text-transform:uppercase; margin-bottom:.5rem; }
+    .add-items { display:flex; flex-wrap:wrap; gap:.45rem; }
+    .add-chip { font-size:.8rem; color:var(--muted); padding:.2rem .75rem; border:1px solid var(--border); border-radius:3px; }
+
+    /* ── PROJECTS ─────────────────────────── */
+    .proj-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1.4rem; }
+    .proj-card {
+      display:flex; flex-direction:column;
+      background:var(--bg2); border:1px solid var(--border);
+      border-radius:6px; padding:1.8rem;
+      text-decoration:none; color:inherit; transition:all .3s;
+    }
+    .proj-card:hover { border-color:rgba(56,189,248,.38); transform:translateY(-6px); box-shadow:0 18px 48px rgba(56,189,248,.09); }
+    .proj-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; }
+    .proj-icon { font-size:1.65rem; }
+    .proj-badge { font-family:var(--mono); font-size:.63rem; padding:.2rem .6rem; border-radius:20px; letter-spacing:.08em; }
+    .badge-py  { background:rgba(251,191,36,.1);  color:var(--gold);   border:1px solid rgba(251,191,36,.25); }
+    .badge-dev { background:rgba(129,140,248,.1); color:var(--accent2); border:1px solid rgba(129,140,248,.25); }
+    .badge-net { background:rgba(52,211,153,.1);  color:var(--green);  border:1px solid rgba(52,211,153,.25); }
+    .badge-lin { background:rgba(251,191,36,.08); color:var(--gold);   border:1px solid rgba(251,191,36,.2); }
+    .badge-win { background:rgba(56,189,248,.08); color:var(--accent); border:1px solid rgba(56,189,248,.2); }
+    .proj-name { font-family:var(--display); font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:.4rem; }
+    .proj-desc { font-size:.87rem; color:var(--muted); line-height:1.7; margin-bottom:.9rem; flex:1; }
+    .proj-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.6rem; margin-top:auto; }
+
+    /* ── EDUCATION ────────────────────────── */
+    .edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+    .edu-card { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:1.8rem; }
+    .edu-label { font-family:var(--mono); font-size:.64rem; letter-spacing:.28em; text-transform:uppercase; color:var(--accent); opacity:.7; margin-bottom:.6rem; }
+    .edu-title { font-family:var(--display); font-size:1.18rem; font-weight:700; color:var(--text); margin-bottom:.18rem; }
+    .edu-inst { color:var(--muted); font-size:.86rem; margin-bottom:.35rem; }
+    .edu-date { font-family:var(--mono); font-size:.7rem; color:var(--accent); letter-spacing:.1em; }
+
+    .transcript-wrap { margin-top:1.9rem; background:var(--bg2); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+    .transcript-header { padding:1rem 1.5rem; border-bottom:1px solid var(--border); font-family:var(--mono); font-size:.76rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); }
+    table { width:100%; border-collapse:collapse; }
+    th { font-family:var(--mono); font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); text-align:left; padding:.55rem 1.3rem; border-bottom:1px solid var(--border); background:rgba(56,189,248,.025); }
+    td { padding:.46rem 1.3rem; font-size:.85rem; color:var(--muted); border-bottom:1px solid rgba(56,189,248,.04); }
+    tr:last-child td { border-bottom:none; }
+    td.g-hi  { color:var(--green); font-family:var(--mono); font-weight:600; }
+    td.g-mid { color:var(--gold);  font-family:var(--mono); }
+    td.g-lo  { color:var(--red);   font-family:var(--mono); }
+    tr.t-row td { background:rgba(56,189,248,.028); font-family:var(--mono); font-size:.66rem; color:var(--accent); letter-spacing:.12em; padding:.38rem 1.3rem; }
+    tr.gpa-row td { font-weight:700; color:var(--text); font-family:var(--mono); font-size:.82rem; background:rgba(52,211,153,.04); }
+    .cur-courses { margin-top:1.5rem; background:var(--bg2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:0 6px 6px 0; padding:1.3rem 1.7rem; }
+    .cur-courses h4 { font-family:var(--mono); font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin-bottom:.75rem; }
+    .cpills { display:flex; flex-wrap:wrap; gap:.45rem; }
+    .cpill { font-size:.82rem; padding:.24rem .75rem; border:1px solid var(--border); border-radius:3px; color:var(--muted); }
+
+    /* hero animations */
+    #profile .hero-kicker,#profile .hero-name,#profile .hero-bio,
+    #profile .chip-row,#profile .btn-row,#profile .contact-strip { animation:fu .75s ease both; }
+    #profile .hero-name    { animation-delay:.10s; }
+    #profile .hero-bio     { animation-delay:.24s; }
+    #profile .chip-row     { animation-delay:.38s; }
+    #profile .btn-row      { animation-delay:.52s; }
+    #profile .contact-strip{ animation-delay:.64s; }
+    @keyframes fu { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    @media(max-width:700px){
+      .two-col,.edu-grid{grid-template-columns:1fr}
+      th,td{padding-left:.8rem;padding-right:.8rem}
     }
   </style>
 </head>
-
 <body>
 
-<nav>
-  <div>RB.dev</div>
-  <div>
-    <a href="#profile">Profile</a>
-    <a href="#skills">Resume</a>
-    <a href="#work">Work Samples</a>
-    <a href="#education">Education</a>
+  <!-- ══ NAVIGATION — Rubric Criterion 5 ══ -->
+  <nav>
+    <a href="index.html" class="nav-logo">RB<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#skills">Resume</a></li>
+      <li><a href="#work">Work Samples</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ══ SECTION 1 — PROFILE ══ -->
+  <section id="profile">
+    <p class="hero-kicker">Computer Systems Technician &nbsp;·&nbsp; George Brown Polytechnic &nbsp;·&nbsp; April 2026</p>
+    <h1 class="hero-name">ROHAIL<span class="ln">BHATTI</span></h1>
+    <p class="hero-bio">
+      I am a Computer Systems Technician student at George Brown Polytechnic, graduating
+      April 2026 through an intensive online program backed by one of Canada's only
+      Cisco Premier Partner and Instructor Training Academies. My studies have delivered
+      deep, practical experience across networking, Linux and Windows Server administration,
+      identity management, DevOps, and cybersecurity — all reinforced through hands-on labs
+      using physical Cisco hardware via the NETLAB+ platform. Prior professional experience
+      in electronics diagnostics and hardware testing has sharpened my troubleshooting
+      instincts, attention to detail, and ability to communicate technical findings clearly.
+      I am seeking an entry-level IT Support or Cybersecurity Analyst role where I can apply
+      these skills to support reliable, secure IT operations.
+    </p>
+    <div class="chip-row">
+      <span class="chip">TCP/IP &amp; Cisco IOS</span>
+      <span class="chip">Windows 10/11 &amp; Server</span>
+      <span class="chip">Ubuntu Linux</span>
+      <span class="chip">Active Directory &amp; GPO</span>
+      <span class="chip">Network Automation</span>
+      <span class="chip">DevOps &amp; CI/CD</span>
+      <span class="chip">Python &amp; Bash</span>
+      <span class="chip">Hardware Diagnostics</span>
+      <span class="chip">Cyber Security</span>
+      <span class="chip">Microsoft Azure</span>
+    </div>
+    <div class="btn-row">
+      <a href="Resume.pdf" target="_blank" class="btn">View Resume ↗</a>
+      <a href="https://github.com/rohailbt" target="_blank" class="btn btn-ghost">GitHub Profile →</a>
+    </div>
+    <div class="contact-strip">
+      <a href="mailto:rohailbt@gmail.com"><i class="ico">✉</i> rohailbt@gmail.com</a>
+      <a href="tel:3653553444"><i class="ico">☏</i> (365) 355-3444</a>
+      <a href="https://linkedin.com/in/rohailbhatti" target="_blank"><i class="ico">in</i> linkedin.com/in/rohailbhatti</a>
+      <span><i class="ico">⌖</i> Milton, Ontario</span>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 2 — RESUME / SKILLS ══ -->
+  <div class="page-wrap" id="skills">
+    <p class="eyebrow">02 &nbsp;·&nbsp; Resume</p>
+    <h2 class="s-heading">Skills &amp;<br>Experience</h2>
+    <div class="rule"></div>
+
+    <div class="two-col reveal">
+      <div class="card">
+        <p class="card-title">Technical Skills</p>
+        <ul class="skill-list">
+          <li><strong>Operating Systems:</strong> Windows 10/11, Windows Server, Ubuntu Linux</li>
+          <li><strong>Networking:</strong> TCP/IP, VLANs, DHCP, DNS, NAT, ACLs, OSPF, Cisco IOS</li>
+          <li><strong>Security &amp; Identity:</strong> Active Directory, GPO, Firewall Configuration</li>
+          <li><strong>Tools:</strong> Wireshark, Packet Tracer, VMware, VirtualBox, NETLAB+</li>
+          <li><strong>Cloud:</strong> Microsoft Azure (fundamentals), Microsoft 365</li>
+          <li><strong>DevOps:</strong> Git, GitHub Actions, CI/CD pipelines, Branching strategies</li>
+          <li><strong>Programming:</strong> Python, Bash scripting, automation</li>
+          <li><strong>Hardware:</strong> Desktop/laptop diagnostics, mobile device testing &amp; QA</li>
+        </ul>
+      </div>
+      <div class="card d1">
+        <p class="card-title">Professional Skills</p>
+        <ul class="skill-list">
+          <li>Structured hardware and software troubleshooting &amp; root-cause analysis</li>
+          <li>Clear technical communication with non-technical end users</li>
+          <li>Help desk ticket triage, prioritisation, and SLA awareness</li>
+          <li>Accurate documentation — IMEI tracking, QA logs, incident records</li>
+          <li>Git-based version control and collaborative team workflows</li>
+          <li>Multiple concurrent task management under strict deadlines</li>
+          <li>Cross-functional team collaboration and peer knowledge sharing</li>
+          <li>Professionalism, confidentiality, and high attention to detail</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card reveal d2" style="margin-top:1.5rem;">
+      <p class="card-title">Work Experience</p>
+
+      <div class="exp-block">
+        <div class="exp-meta">
+          <span class="exp-role">Cell Phone Screener</span>
+          <span class="exp-date">Sept 2024 – Jan 2025</span>
+        </div>
+        <p class="exp-org">SBE Logistics &nbsp;·&nbsp; Mississauga, ON</p>
+        <ul class="exp-list">
+          <li>Diagnosed hardware and software issues across 50+ devices daily, applying structured troubleshooting methods to identify defects and maintain accurate device condition records.</li>
+          <li>Monitored device processing workflows and identified recurring failure patterns, implementing targeted adjustments that increased operational efficiency by 20%.</li>
+          <li>Collaborated with supervisors and quality leads to support daily screening operations, demonstrating cross-functional communication and teamwork skills applicable to IT support environments.</li>
+          <li>Managed multiple concurrent tasks under strict daily deadlines, consistently delivering accurate results in a high-volume environment.</li>
+        </ul>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-meta">
+          <span class="exp-role">Product Tester / Picker &amp; Packer</span>
+          <span class="exp-date">April 2023 – Feb 2024</span>
+        </div>
+        <p class="exp-org">GO TRG &nbsp;·&nbsp; Milton, ON</p>
+        <ul class="exp-list">
+          <li>Tested electronic devices against defined quality standards, diagnosed functional defects, and proposed process improvements that reduced error rates and enhanced overall product quality.</li>
+          <li>Reported technical issues to team leads and collaborated on procedure refinements, applying structured problem-solving and communication skills applicable to IT team environments.</li>
+          <li>Maintained accurate inventory and defect documentation records throughout high-volume operations, reinforcing data reliability and attention to detail.</li>
+        </ul>
+      </div>
+
+      <div class="add-exp">
+        <p class="add-label">Additional Experience</p>
+        <div class="add-items">
+          <span class="add-chip">Best Buy — Product Process Specialist</span>
+          <span class="add-chip">Puma Canada — Merchandiser</span>
+          <span class="add-chip">Loblaws — Grocery Clerk</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.6rem; text-align:center;">
+      <a href="Resume.pdf" target="_blank" class="btn">Download Full Resume (PDF) ↗</a>
+    </div>
   </div>
-</nav>
 
-<section id="profile">
-  <h1>Rohail Bhatti</h1>
-  <p>
-    Computer Systems Technician student at George Brown Polytechnic (April 2026)
-    with hands-on experience in networking, Windows Server, Linux administration,
-    and cybersecurity labs. Strong troubleshooting background with real-world
-    lab experience.
-  </p>
 
-  <a href="#skills" class="btn">View Resume</a>
-  <a href="resume.pdf" class="btn">Download Resume</a>
-  <a href="https://github.com/rohailbt" class="btn">GitHub</a>
-</section>
+  <!-- ══ SECTION 3 — WORK SAMPLES ══ -->
+  <div class="page-wrap" id="work">
+    <p class="eyebrow">03 &nbsp;·&nbsp; Work Samples</p>
+    <h2 class="s-heading">Projects &amp;<br>GitHub Work</h2>
+    <div class="rule"></div>
 
-<section id="skills">
-  <h2>Resume</h2>
+    <div class="proj-grid">
 
-  <div class="card">
-    <h3>Technical Skills</h3>
-    <p>Windows 10/11, Windows Server, Ubuntu Linux, Active Directory, GPO, VLANs, DHCP, DNS, Cisco IOS, Python, Bash, VMware</p>
+      <a href="python-project.html" class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon">🐍</div>
+          <span class="proj-badge badge-py">Python</span>
+        </div>
+        <p class="proj-name">Interactive Python Program</p>
+        <p class="proj-desc">Menu-driven console application demonstrating conditionals, loops, arithmetic operations, and input validation. Built for COMP 1250 — Introduction to Programming.</p>
+        <div class="proj-footer">
+          <div class="tag-row"><span class="ptag">Python</span><span class="ptag">Conditionals</span><span class="ptag">Loops</span><span class="ptag">I/O</span></div>
+          <span style="font-family:var(--mono);font-size:.68rem;color:var(--accent);">View →</span>
+        </div>
+      </a>
+
+      <a href="devops-project.html" class="proj-card reveal d1">
+        <div class="proj-top">
+          <div class="proj-icon">⚙️</div>
+          <span class="proj-badge badge-dev">DevOps</span>
+        </div>
+        <p class="proj-name">DevOps Group Assignment — CI/CD</p>
+        <p class="proj-desc">Collaborative DevOps project using Git branching, pull requests, and GitHub Actions CI/CD. 16+ personal commits in a 5-member team repository. COMP 2156.</p>
+        <div class="proj-footer">
+          <div class="tag-row"><span class="ptag">Git</span><span class="ptag">CI/CD</span><span class="ptag">GitHub Actions</span><span class="ptag">SDLC</span></div>
+          <span style="font-family:var(--mono);font-size:.68rem;color:var(--accent);">View →</span>
+        </div>
+      </a>
+
+      <a href="ccna-project.html" class="proj-card reveal d2">
+        <div class="proj-top">
+          <div class="proj-icon">🖧</div>
+          <span class="proj-badge badge-net">Networking</span>
+        </div>
+        <p class="proj-name">CCNAv7 ENSA Network Project</p>
+        <p class="proj-desc">End-of-course enterprise network design in Cisco Packet Tracer covering OSPF, VLANs, NAT, ACLs, and security hardening across a full multi-site topology.</p>
+        <div class="proj-footer">
+          <div class="tag-row"><span class="ptag">Cisco IOS</span><span class="ptag">OSPF</span><span class="ptag">VLANs</span><span class="ptag">NAT/ACLs</span></div>
+          <span style="font-family:var(--mono);font-size:.68rem;color:var(--accent);">View →</span>
+        </div>
+      </a>
+
+      <a href="linux-project.html" class="proj-card reveal d3">
+        <div class="proj-top">
+          <div class="proj-icon">🐧</div>
+          <span class="proj-badge badge-lin">Linux</span>
+        </div>
+        <p class="proj-name">Linux System Administration Labs</p>
+        <p class="proj-desc">Deployed and secured Ubuntu Server environments covering SSH hardening, Apache, UFW, Bash automation, and service monitoring. COMP 3044 &amp; COMP 3066.</p>
+        <div class="proj-footer">
+          <div class="tag-row"><span class="ptag">Ubuntu</span><span class="ptag">Bash</span><span class="ptag">Apache</span><span class="ptag">SSH</span></div>
+          <span style="font-family:var(--mono);font-size:.68rem;color:var(--accent);">View →</span>
+        </div>
+      </a>
+
+      <a href="windows-project.html" class="proj-card reveal d4">
+        <div class="proj-top">
+          <div class="proj-icon">🏢</div>
+          <span class="proj-badge badge-win">Windows Server</span>
+        </div>
+        <p class="proj-name">Windows Server Domain Lab</p>
+        <p class="proj-desc">Configured Active Directory Domain Services, Organisational Units, Group Policy Objects, and domain-joined clients in a VMware virtualization environment.</p>
+        <div class="proj-footer">
+          <div class="tag-row"><span class="ptag">AD DS</span><span class="ptag">GPO</span><span class="ptag">VMware</span><span class="ptag">DNS</span></div>
+          <span style="font-family:var(--mono);font-size:.68rem;color:var(--accent);">View →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="margin-top:2.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;" class="reveal">
+      <div>
+        <p style="color:var(--muted);font-size:.93rem;">All source files and repositories are available on GitHub</p>
+        <code style="display:block;font-family:var(--mono);font-size:.8rem;color:var(--accent);margin-top:.2rem;">github.com/rohailbt</code>
+      </div>
+      <a href="https://github.com/rohailbt" target="_blank" class="btn">Visit GitHub →</a>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Experience</h3>
-    <p><strong>Cell Phone Screener</strong> — Diagnosed hardware/software issues</p>
-    <p><strong>Product Tester</strong> — Tested electronics and documented defects</p>
+
+  <!-- ══ SECTION 4 — EDUCATION ══ -->
+  <div class="page-wrap" id="education">
+    <p class="eyebrow">04 &nbsp;·&nbsp; Education &amp; Acknowledgements</p>
+    <h2 class="s-heading">Education &amp;<br>Credentials</h2>
+    <div class="rule"></div>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <p class="edu-label">Diploma — In Progress</p>
+        <p class="edu-title">Computer Systems Technician</p>
+        <p class="edu-inst">George Brown Polytechnic &nbsp;·&nbsp; Program T191 (Online)</p>
+        <p class="edu-date">2025 — April 2026 &nbsp;·&nbsp; Expected Graduation</p>
+      </div>
+      <div class="edu-card reveal d1">
+        <p class="edu-label">Prior Studies</p>
+        <p class="edu-title">Engineering &amp; General Education</p>
+        <p class="edu-inst">Toronto Metropolitan University &nbsp;·&nbsp; Transfer Credits Accepted</p>
+        <p class="edu-date">Fall 2018 – Fall 2019</p>
+      </div>
+      <div class="edu-card reveal d2" style="grid-column:span 2;">
+        <p class="edu-label">Institutional Recognition</p>
+        <p class="edu-title">Cisco Premier Partner Academy &amp; Instructor Training Centre</p>
+        <p class="edu-inst" style="margin-top:.5rem;font-size:.92rem;line-height:1.85;color:var(--muted);">
+          George Brown Polytechnic's Cisco Networking Academy holds <strong style="color:var(--text)">Cisco Premier Partner status for two consecutive years</strong> and supports over 35 Cisco Networking Academies across North America. As one of only a few institutions with Instructor Trainer designation, the college provides students with 24/7 remote access to physical Cisco equipment via NETLAB+, delivering industry-standard hands-on experience.
+        </p>
+      </div>
+    </div>
+
+    <div class="transcript-wrap reveal d3">
+      <div class="transcript-header">Unofficial Academic Transcript &nbsp;·&nbsp; George Brown Polytechnic</div>
+      <table>
+        <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+        <tbody>
+          <tr class="t-row"><td colspan="4">WINTER 2025 &nbsp;·&nbsp; Term GPA: 3.37</td></tr>
+          <tr><td>COMP 1151</td><td>IT Essentials A+</td><td>4.0</td><td class="g-hi">A+</td></tr>
+          <tr><td>COMP 1234</td><td>Introduction to Web Development</td><td>4.0</td><td class="g-lo">D+</td></tr>
+          <tr><td>COMP 1236</td><td>Fundamentals of Computing Logic</td><td>4.0</td><td class="g-hi">A−</td></tr>
+          <tr><td>COMP 1238</td><td>Introduction to Data Management</td><td>3.0</td><td class="g-hi">A+</td></tr>
+          <tr><td>MATH 1162</td><td>Math for Computer Technology I</td><td>4.0</td><td class="g-hi">A+</td></tr>
+          <tr class="t-row"><td colspan="4">SPRING 2025 &nbsp;·&nbsp; Term GPA: 3.80</td></tr>
+          <tr><td>COMP 1176</td><td>Introduction to Networks</td><td>4.0</td><td class="g-hi">A−</td></tr>
+          <tr><td>COMP 1250</td><td>Introduction to Programming</td><td>4.0</td><td class="g-hi">A+</td></tr>
+          <tr><td>COMP 3044</td><td>Linux Essentials</td><td>3.0</td><td class="g-hi">A+</td></tr>
+          <tr><td>COMP 3105</td><td>Enterprise Desktop Operating Systems</td><td>3.0</td><td class="g-hi">A−</td></tr>
+          <tr><td>GSSC 1027</td><td>Personal Finance</td><td>3.0</td><td class="g-hi">B+</td></tr>
+          <tr><td>MATH 1172</td><td>Math for Computer Technology II</td><td>4.0</td><td class="g-hi">A</td></tr>
+          <tr class="t-row"><td colspan="4">FALL 2025 &nbsp;·&nbsp; Term GPA: 2.67</td></tr>
+          <tr><td>COMP 2064</td><td>Identity Management Services</td><td>4.0</td><td class="g-mid">C+</td></tr>
+          <tr><td>COMP 2155</td><td>Network Automation</td><td>4.0</td><td class="g-hi">A</td></tr>
+          <tr><td>COMP 3066</td><td>Linux System Administration</td><td>3.0</td><td class="g-mid">C</td></tr>
+          <tr><td>COMP 3136</td><td>Network Infrastructure</td><td>4.0</td><td class="g-mid">B−</td></tr>
+          <tr class="gpa-row"><td colspan="2">Cumulative GPA — Institution Credit</td><td>58.0 hrs</td><td class="g-hi">3.31 / 4.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cur-courses reveal d4">
+      <h4>// Currently In Progress — Winter 2026</h4>
+      <div class="cpills">
+        <span class="cpill">Wireless Technology Fundamentals (COMP 2102)</span>
+        <span class="cpill">Windows Server Network Infrastructure (COMP 2141)</span>
+        <span class="cpill">Professional Workplace Competencies (COMP 2148)</span>
+        <span class="cpill">DevOps for System Administrators (COMP 2156)</span>
+        <span class="cpill">Cyber Security Fundamentals (COMP 3061)</span>
+        <span class="cpill">Enterprise Networking &amp; Automation (COMP 3138)</span>
+      </div>
+    </div>
   </div>
-</section>
 
-<section id="work">
-  <h2>Work Samples</h2>
+  <footer>
+    <p>Rohail Bhatti &nbsp;·&nbsp; Computer Systems Technician · George Brown Polytechnic 2026 &nbsp;·&nbsp;
+      <a href="https://github.com/rohailbt" target="_blank">github.com/rohailbt</a> &nbsp;·&nbsp;
+      <a href="mailto:rohailbt@gmail.com">rohailbt@gmail.com</a> &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/rohailbhatti" target="_blank">LinkedIn</a></p>
+    <p class="sub">© 2026 &nbsp;·&nbsp; Hosted with GitHub Pages</p>
+  </footer>
 
-  <div class="card">
-    <h3>Python Project</h3>
-    <a href="https://github.com/rohailbt/COMP1250-Python-Program">View Project</a>
-  </div>
-
-  <div class="card">
-    <h3>DevOps Project</h3>
-    <a href="https://github.com/mohamad97-dev/COMP2156_Group-19_Assignment/tree/101601533-Rohail">View Project</a>
-  </div>
-
-  <div class="card">
-    <h3>Networking Project</h3>
-    <a href="https://github.com/rohailbt/CCNA-ENSA-Labs">View Project</a>
-  </div>
-
-  <div class="card">
-    <h3>Linux Admin Labs</h3>
-    <a href="https://github.com/rohailbt/Linux-Admin-Labs">View Project</a>
-  </div>
-
-  <div class="card">
-    <h3>Windows Server Domain Lab</h3>
-    <a href="https://github.com/rohailbt/Windows-Server-Lab">View Project</a>
-  </div>
-
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-
-  <div class="card">
-    <p>Computer Systems Technician — George Brown Polytechnic (Expected April 2026)</p>
-  </div>
-
-</section>
-
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+    }, {threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

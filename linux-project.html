@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Admin Labs | Rohail Bhatti</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .proj-hero { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:2.2rem 2.4rem; margin-bottom:2rem; }
+    .proj-hero-top { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem; }
+    .proj-title { font-family:var(--display); font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--text); }
+    .proj-meta { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
+    .meta-chip { font-family:var(--mono); font-size:.68rem; padding:.25rem .7rem; border:1px solid var(--border); border-radius:3px; color:var(--muted); }
+    .proj-desc-full { font-size:.96rem; color:var(--muted); line-height:1.88; }
+    .section-sub { font-family:var(--display); font-size:1.25rem; font-weight:700; color:var(--text); margin:2.2rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+    .lab-list { list-style:none; }
+    .lab-item { display:grid; grid-template-columns:auto 1fr; gap:1rem 1.2rem; padding:1.1rem 0; border-bottom:1px solid rgba(56,189,248,.05); align-items:flex-start; }
+    .lab-item:last-child { border-bottom:none; }
+    .lab-num { font-family:var(--mono); font-size:.72rem; color:var(--accent); background:rgba(56,189,248,.07); padding:.25rem .6rem; border-radius:3px; margin-top:.1rem; }
+    .lab-name { font-weight:600; color:var(--text); font-size:.95rem; margin-bottom:.3rem; }
+    .lab-desc { font-size:.87rem; color:var(--muted); line-height:1.68; }
+    pre {
+      background:#0a0f1e; border:1px solid var(--border); border-radius:6px;
+      padding:1.5rem 1.8rem; overflow-x:auto; font-family:var(--mono);
+      font-size:.8rem; line-height:1.8; color:#94a3b8; margin-bottom:1.2rem;
+    }
+    .cmd  { color:#38bdf8; }
+    .flag { color:#818cf8; }
+    .arg  { color:#34d399; }
+    .cm   { color:#475569; font-style:italic; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .grade-box { background:rgba(52,211,153,.05); border:1px solid rgba(52,211,153,.2); border-radius:6px; padding:1.2rem 1.5rem; }
+    .grade-label { font-family:var(--mono); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--green); margin-bottom:.3rem; }
+    .grade-val { font-family:var(--display); font-size:2rem; font-weight:800; color:var(--green); }
+    .grade-course { font-size:.84rem; color:var(--muted); margin-top:.2rem; }
+    .btn-row { display:flex; gap:.85rem; flex-wrap:wrap; margin-top:2rem; }
+    @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">RB<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#profile">Profile</a></li>
+      <li><a href="index.html#skills">Resume</a></li>
+      <li><a href="index.html#work">Work Samples</a></li>
+      <li><a href="index.html#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <a href="index.html#work" class="back-link">← Back to Work Samples</a>
+
+    <div class="proj-hero">
+      <div class="proj-hero-top">
+        <div>
+          <p class="eyebrow">COMP 3044 &amp; COMP 3066 — Linux Essentials &amp; System Administration</p>
+          <h1 class="proj-title">🐧 Linux System Administration Labs</h1>
+          <div class="proj-meta">
+            <span class="meta-chip">Ubuntu Server</span>
+            <span class="meta-chip">Bash Scripting</span>
+            <span class="meta-chip">Apache</span>
+            <span class="meta-chip">SSH / UFW</span>
+            <span class="meta-chip">George Brown Polytechnic</span>
+          </div>
+        </div>
+        <a href="https://github.com/rohailbt" target="_blank" class="btn btn-ghost btn-sm">View on GitHub →</a>
+      </div>
+      <p class="proj-desc-full">
+        A series of hands-on Linux administration labs completed across two courses — COMP 3044 (Linux Essentials)
+        and COMP 3066 (Linux System Administration). Each lab targeted a specific administration domain, building
+        from initial server deployment through to user management, network service configuration, security hardening,
+        and Bash-based automation. All labs were performed on Ubuntu Server 22.04 LTS in a virtual environment.
+      </p>
+    </div>
+
+    <div class="two-col" style="margin-bottom:2rem;">
+      <div class="grade-box">
+        <p class="grade-label">COMP 3044 — Linux Essentials</p>
+        <p class="grade-val">A+</p>
+        <p class="grade-course">Spring 2025</p>
+      </div>
+      <div class="grade-box">
+        <p class="grade-label">COMP 3066 — Linux System Admin</p>
+        <p class="grade-val">C</p>
+        <p class="grade-course">Fall 2025</p>
+      </div>
+    </div>
+
+    <h2 class="section-sub">Lab Modules Completed</h2>
+    <ul class="lab-list">
+      <li class="lab-item">
+        <span class="lab-num">LAB 01</span>
+        <div>
+          <p class="lab-name">Server Deployment &amp; Initial Configuration</p>
+          <p class="lab-desc">Installed Ubuntu Server 22.04 LTS in a VirtualBox VM. Configured hostname, static IP via Netplan, locale settings, and network interface to establish base connectivity.</p>
+        </div>
+      </li>
+      <li class="lab-item">
+        <span class="lab-num">LAB 02</span>
+        <div>
+          <p class="lab-name">User &amp; Group Management</p>
+          <p class="lab-desc">Created user accounts with useradd, assigned groups with usermod, set file ownership and permissions with chmod/chown, and configured sudo access via the sudoers file.</p>
+        </div>
+      </li>
+      <li class="lab-item">
+        <span class="lab-num">LAB 03</span>
+        <div>
+          <p class="lab-name">SSH Hardening &amp; Remote Access</p>
+          <p class="lab-desc">Configured OpenSSH for key-based authentication, disabled password login and root SSH access in sshd_config, and tested secure remote access from a client machine.</p>
+        </div>
+      </li>
+      <li class="lab-item">
+        <span class="lab-num">LAB 04</span>
+        <div>
+          <p class="lab-name">UFW Firewall Configuration</p>
+          <p class="lab-desc">Enabled UFW, configured rules to allow SSH (22), HTTP (80), and HTTPS (443) while blocking all other inbound traffic. Verified rules with ufw status verbose.</p>
+        </div>
+      </li>
+      <li class="lab-item">
+        <span class="lab-num">LAB 05</span>
+        <div>
+          <p class="lab-name">Apache Web Server Setup</p>
+          <p class="lab-desc">Installed and configured Apache2 with virtual hosting. Created a custom index.html, enabled sites with a2ensite, and verified the server was reachable from the client browser.</p>
+        </div>
+      </li>
+      <li class="lab-item">
+        <span class="lab-num">LAB 06</span>
+        <div>
+          <p class="lab-name">Bash Scripting &amp; Automation</p>
+          <p class="lab-desc">Wrote Bash scripts to automate system backup, user provisioning, log rotation cleanup, and disk usage reporting. Scripts were scheduled with cron for automated execution.</p>
+        </div>
+      </li>
+      <li class="lab-item">
+        <span class="lab-num">LAB 07</span>
+        <div>
+          <p class="lab-name">System Monitoring &amp; Package Management</p>
+          <p class="lab-desc">Used top, htop, df, du, and journalctl to monitor system performance and logs. Managed packages with apt, performed upgrades, and removed orphaned dependencies.</p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 class="section-sub">Sample Commands</h2>
+    <pre><span class="cm"># Create user and add to sudo group</span>
+<span class="cmd">sudo useradd</span> <span class="flag">-m -s</span> <span class="arg">/bin/bash</span> rohail
+<span class="cmd">sudo usermod</span> <span class="flag">-aG</span> <span class="arg">sudo</span> rohail
+
+<span class="cm"># Configure SSH key authentication</span>
+<span class="cmd">ssh-keygen</span> <span class="flag">-t</span> <span class="arg">ed25519 -C "rohailbt@gmail.com"</span>
+<span class="cmd">ssh-copy-id</span> <span class="arg">rohail@192.168.1.10</span>
+
+<span class="cm"># UFW firewall rules</span>
+<span class="cmd">sudo ufw allow</span> <span class="arg">22/tcp</span>
+<span class="cmd">sudo ufw allow</span> <span class="arg">80/tcp</span>
+<span class="cmd">sudo ufw allow</span> <span class="arg">443/tcp</span>
+<span class="cmd">sudo ufw enable</span>
+
+<span class="cm"># Apache virtual host setup</span>
+<span class="cmd">sudo apt install</span> <span class="arg">apache2 -y</span>
+<span class="cmd">sudo a2ensite</span> <span class="arg">rohail.conf</span>
+<span class="cmd">sudo systemctl restart</span> <span class="arg">apache2</span>
+
+<span class="cm"># Bash backup script snippet</span>
+<span class="cmd">#!/bin/bash</span>
+BACKUP_DIR=<span class="arg">"/var/backups"</span>
+DATE=$(<span class="cmd">date</span> <span class="flag">+%Y-%m-%d</span>)
+<span class="cmd">tar</span> <span class="flag">-czf</span> <span class="arg">$BACKUP_DIR/backup-$DATE.tar.gz /home/rohail</span>
+<span class="cmd">echo</span> <span class="arg">"Backup complete: $DATE"</span></pre>
+
+    <div class="btn-row">
+      <a href="https://github.com/rohailbt" target="_blank" class="btn">View on GitHub →</a>
+      <a href="index.html#work" class="btn btn-ghost">← All Projects</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Rohail Bhatti &nbsp;·&nbsp; <a href="https://github.com/rohailbt" target="_blank">github.com/rohailbt</a> &nbsp;·&nbsp; <a href="mailto:rohailbt@gmail.com">rohailbt@gmail.com</a></p>
+    <p class="sub">© 2026 &nbsp;·&nbsp; George Brown Polytechnic</p>
+  </footer>
+</body>
+</html>

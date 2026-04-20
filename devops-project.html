@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOps Project | Rohail Bhatti</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .proj-hero { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:2.2rem 2.4rem; margin-bottom:2rem; }
+    .proj-hero-top { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem; }
+    .proj-title { font-family:var(--display); font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--text); }
+    .proj-meta { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
+    .meta-chip { font-family:var(--mono); font-size:.68rem; padding:.25rem .7rem; border:1px solid var(--border); border-radius:3px; color:var(--muted); }
+    .proj-desc-full { font-size:.96rem; color:var(--muted); line-height:1.88; }
+    .section-sub { font-family:var(--display); font-size:1.25rem; font-weight:700; color:var(--text); margin:2.2rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+    .commit-list { list-style:none; }
+    .commit-list li { display:flex; align-items:flex-start; gap:.9rem; padding:.7rem 0; border-bottom:1px solid rgba(56,189,248,.05); font-size:.88rem; color:var(--muted); }
+    .commit-list li:last-child { border-bottom:none; }
+    .commit-hash { font-family:var(--mono); font-size:.72rem; color:var(--accent); background:rgba(56,189,248,.07); padding:.18rem .5rem; border-radius:3px; flex-shrink:0; margin-top:.05rem; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .info-block { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:1.4rem 1.6rem; }
+    .info-label { font-family:var(--mono); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); opacity:.7; margin-bottom:.5rem; }
+    .info-val { font-size:.92rem; color:var(--text); font-weight:500; }
+    .info-sub { font-size:.82rem; color:var(--muted); margin-top:.15rem; }
+    .pipeline-steps { display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:1.5rem; }
+    .step { display:flex; align-items:center; gap:.5rem; background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:.65rem 1rem; font-size:.84rem; color:var(--muted); }
+    .step-num { font-family:var(--mono); font-size:.68rem; color:var(--accent); background:rgba(56,189,248,.08); width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .btn-row { display:flex; gap:.85rem; flex-wrap:wrap; margin-top:2rem; }
+    @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">RB<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#profile">Profile</a></li>
+      <li><a href="index.html#skills">Resume</a></li>
+      <li><a href="index.html#work">Work Samples</a></li>
+      <li><a href="index.html#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <a href="index.html#work" class="back-link">← Back to Work Samples</a>
+
+    <div class="proj-hero">
+      <div class="proj-hero-top">
+        <div>
+          <p class="eyebrow">COMP 2156 — DevOps for System Administrators</p>
+          <h1 class="proj-title">⚙️ DevOps Group Assignment</h1>
+          <div class="proj-meta">
+            <span class="meta-chip">Git &amp; GitHub</span>
+            <span class="meta-chip">GitHub Actions CI/CD</span>
+            <span class="meta-chip">George Brown Polytechnic</span>
+            <span class="meta-chip">Winter 2026</span>
+            <span class="meta-chip">Student ID: 101601533</span>
+          </div>
+        </div>
+        <a href="https://github.com/mohamad97-dev/COMP2156_Group-19_Assignment/tree/101601533-Rohail" target="_blank" class="btn btn-ghost btn-sm">View My Branch →</a>
+      </div>
+      <p class="proj-desc-full">
+        A collaborative DevOps group assignment applying industry-standard version control and CI/CD practices
+        in a 5-member team environment. The project required each member to create and manage a personal branch,
+        make multiple meaningful commits, submit pull requests, and contribute to a shared GitHub Actions
+        workflow. I authored all George Brown College, DevOps, and SDLC documentation files for my branch
+        and successfully merged my contributions into the main branch.
+      </p>
+    </div>
+
+    <h2 class="section-sub">Project Overview</h2>
+    <div class="two-col">
+      <div class="info-block">
+        <p class="info-label">My Branch</p>
+        <p class="info-val" style="font-family:var(--mono);color:var(--accent);">101601533-Rohail</p>
+        <p class="info-sub">Personal branch with 16+ meaningful commits</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Repository</p>
+        <p class="info-val">COMP2156_Group-19_Assignment</p>
+        <p class="info-sub">58+ total commits across all contributors</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Files Authored</p>
+        <p class="info-val">101601533_gb.txt &nbsp;·&nbsp; 101601533_devops.txt &nbsp;·&nbsp; 101601533_sdlc.txt</p>
+        <p class="info-sub">George Brown, DevOps, and SDLC documentation</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">CI/CD Pipeline</p>
+        <p class="info-val">GitHub Actions — 6 Workflow Runs</p>
+        <p class="info-sub">Automated testing and deployment validation</p>
+      </div>
+    </div>
+
+    <h2 class="section-sub">CI/CD Workflow Steps</h2>
+    <div class="pipeline-steps">
+      <div class="step"><span class="step-num">1</span>Create feature branch from main</div>
+      <div class="step"><span class="step-num">2</span>Author &amp; commit documentation files</div>
+      <div class="step"><span class="step-num">3</span>Push branch to remote origin</div>
+      <div class="step"><span class="step-num">4</span>Open pull request → code review</div>
+      <div class="step"><span class="step-num">5</span>GitHub Actions CI runs automatically</div>
+      <div class="step"><span class="step-num">6</span>Merge into main after approval</div>
+      <div class="step"><span class="step-num">7</span>Pull latest main to stay in sync</div>
+    </div>
+
+    <h2 class="section-sub">My Commits (Selected)</h2>
+    <ul class="commit-list">
+      <li><span class="commit-hash">ee20897</span>Add final summary to GB file</li>
+      <li><span class="commit-hash">3eeb66c</span>Add conclusion to DevOps file</li>
+      <li><span class="commit-hash">f742515</span>Add automated testing and CI tools section</li>
+      <li><span class="commit-hash">185dfbc</span>Add Agile methodology explanation</li>
+      <li><span class="commit-hash">215246f</span>Explain DevOps role in SDLC</li>
+      <li><span class="commit-hash">8d74533</span>Add DevSecOps security details</li>
+      <li><span class="commit-hash">3d4d922</span>Add Git and CI/CD explanation to DevOps file</li>
+      <li><span class="commit-hash">25f51fd</span>Add campus information to GB file</li>
+      <li><span class="commit-hash">37b8dc8</span>Expand GB file with founding year and program areas</li>
+      <li><span class="commit-hash">0680d92</span>Add files with correct student number 101601533</li>
+      <li><span class="commit-hash">e8c16b7</span>Expand SDLC file with Agile and testing details</li>
+      <li><span class="commit-hash">7db397e</span>Add initial SDLC content</li>
+      <li><span class="commit-hash">669aa60</span>Update README with contribution details</li>
+    </ul>
+
+    <div class="btn-row">
+      <a href="https://github.com/mohamad97-dev/COMP2156_Group-19_Assignment/tree/101601533-Rohail" target="_blank" class="btn">View My Branch →</a>
+      <a href="https://github.com/mohamad97-dev/COMP2156_Group-19_Assignment" target="_blank" class="btn btn-ghost">Full Repository →</a>
+      <a href="index.html#work" class="btn btn-ghost">← All Projects</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Rohail Bhatti &nbsp;·&nbsp; <a href="https://github.com/rohailbt" target="_blank">github.com/rohailbt</a> &nbsp;·&nbsp; <a href="mailto:rohailbt@gmail.com">rohailbt@gmail.com</a></p>
+    <p class="sub">© 2026 &nbsp;·&nbsp; George Brown Polytechnic</p>
+  </footer>
+</body>
+</html>

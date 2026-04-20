@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows Server Domain Lab | Rohail Bhatti</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .proj-hero { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:2.2rem 2.4rem; margin-bottom:2rem; }
+    .proj-hero-top { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem; }
+    .proj-title { font-family:var(--display); font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--text); }
+    .proj-meta { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
+    .meta-chip { font-family:var(--mono); font-size:.68rem; padding:.25rem .7rem; border:1px solid var(--border); border-radius:3px; color:var(--muted); }
+    .proj-desc-full { font-size:.96rem; color:var(--muted); line-height:1.88; }
+    .section-sub { font-family:var(--display); font-size:1.25rem; font-weight:700; color:var(--text); margin:2.2rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+    .steps-list { list-style:none; counter-reset:step; }
+    .steps-list li { counter-increment:step; display:grid; grid-template-columns:auto 1fr; gap:1rem 1.2rem; padding:1rem 0; border-bottom:1px solid rgba(56,189,248,.05); }
+    .steps-list li:last-child { border-bottom:none; }
+    .step-num-box { background:rgba(56,189,248,.07); border:1px solid rgba(56,189,248,.15); border-radius:6px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:.76rem; color:var(--accent); flex-shrink:0; }
+    .step-title { font-weight:600; color:var(--text); font-size:.95rem; margin-bottom:.3rem; }
+    .step-desc { font-size:.87rem; color:var(--muted); line-height:1.68; }
+    .env-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:1.8rem; }
+    .env-card { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:1.2rem 1.4rem; }
+    .env-label { font-family:var(--mono); font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); opacity:.7; margin-bottom:.4rem; }
+    .env-val { font-size:.9rem; color:var(--text); font-weight:500; }
+    .env-sub { font-size:.8rem; color:var(--muted); margin-top:.1rem; }
+    .gpo-table { width:100%; border-collapse:collapse; background:var(--bg2); border:1px solid var(--border); border-radius:6px; overflow:hidden; margin-bottom:1.5rem; }
+    .gpo-table th { font-family:var(--mono); font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); text-align:left; padding:.55rem 1.2rem; border-bottom:1px solid var(--border); background:rgba(56,189,248,.025); }
+    .gpo-table td { padding:.52rem 1.2rem; font-size:.85rem; color:var(--muted); border-bottom:1px solid rgba(56,189,248,.04); }
+    .gpo-table tr:last-child td { border-bottom:none; }
+    .gpo-table td:first-child { color:var(--text); font-weight:500; }
+    .btn-row { display:flex; gap:.85rem; flex-wrap:wrap; margin-top:2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">RB<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#profile">Profile</a></li>
+      <li><a href="index.html#skills">Resume</a></li>
+      <li><a href="index.html#work">Work Samples</a></li>
+      <li><a href="index.html#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <a href="index.html#work" class="back-link">← Back to Work Samples</a>
+
+    <div class="proj-hero">
+      <div class="proj-hero-top">
+        <div>
+          <p class="eyebrow">COMP 2064 &amp; COMP 3105 — Identity Management &amp; Enterprise Desktop OS</p>
+          <h1 class="proj-title">🏢 Windows Server Domain Lab</h1>
+          <div class="proj-meta">
+            <span class="meta-chip">Windows Server 2019</span>
+            <span class="meta-chip">Active Directory</span>
+            <span class="meta-chip">Group Policy</span>
+            <span class="meta-chip">VMware</span>
+            <span class="meta-chip">George Brown Polytechnic</span>
+          </div>
+        </div>
+        <a href="https://github.com/rohailbt" target="_blank" class="btn btn-ghost btn-sm">View on GitHub →</a>
+      </div>
+      <p class="proj-desc-full">
+        Designed and implemented a full Windows Server 2019 domain environment in a VMware virtualisation lab.
+        The project covers the complete lifecycle of enterprise identity management — from promoting a domain
+        controller and structuring the directory, to applying Group Policy for security enforcement and
+        onboarding Windows 10 client machines to the domain. This work directly reflects the skills required
+        for systems administrator and IT support roles managing corporate AD environments.
+      </p>
+    </div>
+
+    <h2 class="section-sub">Lab Environment</h2>
+    <div class="env-grid">
+      <div class="env-card">
+        <p class="env-label">Hypervisor</p>
+        <p class="env-val">VMware Workstation</p>
+        <p class="env-sub">Host machine: Windows 10</p>
+      </div>
+      <div class="env-card">
+        <p class="env-label">Domain Controller</p>
+        <p class="env-val">Windows Server 2019</p>
+        <p class="env-sub">AD DS, DNS, DHCP roles</p>
+      </div>
+      <div class="env-card">
+        <p class="env-label">Client Machine</p>
+        <p class="env-val">Windows 10 Pro</p>
+        <p class="env-sub">Domain-joined workstation</p>
+      </div>
+      <div class="env-card">
+        <p class="env-label">Domain Name</p>
+        <p class="env-val">rohail.local</p>
+        <p class="env-sub">Internal private domain</p>
+      </div>
+      <div class="env-card">
+        <p class="env-label">IP Scheme</p>
+        <p class="env-val">192.168.10.0/24</p>
+        <p class="env-sub">Static DC + DHCP for clients</p>
+      </div>
+      <div class="env-card">
+        <p class="env-label">Functional Level</p>
+        <p class="env-val">Windows Server 2016</p>
+        <p class="env-sub">Forest &amp; domain functional level</p>
+      </div>
+    </div>
+
+    <h2 class="section-sub">Implementation Steps</h2>
+    <ol class="steps-list">
+      <li>
+        <span class="step-num-box">01</span>
+        <div>
+          <p class="step-title">Server Deployment &amp; Role Installation</p>
+          <p class="step-desc">Deployed Windows Server 2019 as a VM in VMware. Installed the Active Directory Domain Services (AD DS), DNS, and DHCP roles via Server Manager.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num-box">02</span>
+        <div>
+          <p class="step-title">Domain Controller Promotion</p>
+          <p class="step-desc">Ran the AD DS Configuration Wizard to promote the server to a domain controller, creating a new forest and root domain (rohail.local). Configured DNS to point to the DC's static IP.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num-box">03</span>
+        <div>
+          <p class="step-title">Organisational Unit Structure</p>
+          <p class="step-desc">Designed and created a logical OU hierarchy in Active Directory Users and Computers: Departments (IT, HR, Finance), Users, Computers, and Groups — mirroring a real corporate structure.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num-box">04</span>
+        <div>
+          <p class="step-title">User &amp; Group Account Management</p>
+          <p class="step-desc">Created department user accounts, assigned them to appropriate security groups, and organised accounts within the correct OUs. Applied password policy and account expiry settings.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num-box">05</span>
+        <div>
+          <p class="step-title">Group Policy Object (GPO) Configuration</p>
+          <p class="step-desc">Created and linked GPOs to enforce desktop security policy, map shared network drives, restrict access to Control Panel, set wallpaper, and disable USB storage for standard users.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num-box">06</span>
+        <div>
+          <p class="step-title">DHCP &amp; DNS Configuration</p>
+          <p class="step-desc">Configured a DHCP scope for the 192.168.10.0/24 subnet, set the DC as the DNS server, and verified automatic IP assignment on domain-joined clients.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num-box">07</span>
+        <div>
+          <p class="step-title">Client Domain Join &amp; Verification</p>
+          <p class="step-desc">Joined a Windows 10 Pro VM to rohail.local, logged in with domain credentials, confirmed GPO application with gpresult /r, and verified domain connectivity with ping and nslookup.</p>
+        </div>
+      </li>
+    </ol>
+
+    <h2 class="section-sub">Group Policies Configured</h2>
+    <table class="gpo-table">
+      <thead><tr><th>GPO Name</th><th>Scope</th><th>Setting</th></tr></thead>
+      <tbody>
+        <tr><td>Password Policy</td><td>Domain</td><td>Min length 10 chars, complexity on, 90-day expiry</td></tr>
+        <tr><td>Desktop Lockdown</td><td>All Users OU</td><td>Custom wallpaper, disable right-click desktop</td></tr>
+        <tr><td>Control Panel Block</td><td>Standard Users</td><td>Hide all Control Panel items via User Config</td></tr>
+        <tr><td>Drive Mapping</td><td>IT Department OU</td><td>Map \\DC01\Shared to Z: at logon</td></tr>
+        <tr><td>USB Storage Disable</td><td>All Users</td><td>Deny write access to removable storage devices</td></tr>
+        <tr><td>Account Lockout</td><td>Domain</td><td>Lock after 5 failed attempts, 15-min duration</td></tr>
+      </tbody>
+    </table>
+
+    <div class="btn-row">
+      <a href="https://github.com/rohailbt" target="_blank" class="btn">View on GitHub →</a>
+      <a href="index.html#work" class="btn btn-ghost">← All Projects</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Rohail Bhatti &nbsp;·&nbsp; <a href="https://github.com/rohailbt" target="_blank">github.com/rohailbt</a> &nbsp;·&nbsp; <a href="mailto:rohailbt@gmail.com">rohailbt@gmail.com</a></p>
+    <p class="sub">© 2026 &nbsp;·&nbsp; George Brown Polytechnic</p>
+  </footer>
+</body>
+</html>

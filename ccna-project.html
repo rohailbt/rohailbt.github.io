@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCNA Network Project | Rohail Bhatti</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .proj-hero { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:2.2rem 2.4rem; margin-bottom:2rem; }
+    .proj-hero-top { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem; }
+    .proj-title { font-family:var(--display); font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--text); }
+    .proj-meta { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
+    .meta-chip { font-family:var(--mono); font-size:.68rem; padding:.25rem .7rem; border:1px solid var(--border); border-radius:3px; color:var(--muted); }
+    .proj-desc-full { font-size:.96rem; color:var(--muted); line-height:1.88; }
+    .section-sub { font-family:var(--display); font-size:1.25rem; font-weight:700; color:var(--text); margin:2.2rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+    .config-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; margin-bottom:1.8rem; }
+    .config-card { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:1.3rem 1.5rem; }
+    .config-icon { font-size:1.3rem; margin-bottom:.5rem; }
+    .config-name { font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:.3rem; }
+    .config-desc { font-size:.83rem; color:var(--muted); line-height:1.6; }
+    .download-box { background:rgba(52,211,153,.04); border:1px solid rgba(52,211,153,.2); border-radius:6px; padding:1.5rem 1.8rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem; }
+    .download-box p { color:var(--muted); font-size:.92rem; }
+    .download-box strong { color:var(--green); display:block; font-family:var(--mono); font-size:.82rem; margin-top:.2rem; }
+    .topology-desc { background:var(--bg2); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:0 6px 6px 0; padding:1.4rem 1.7rem; font-size:.92rem; color:var(--muted); line-height:1.85; }
+    .btn-row { display:flex; gap:.85rem; flex-wrap:wrap; margin-top:2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">RB<span>.dev</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#profile">Profile</a></li>
+      <li><a href="index.html#skills">Resume</a></li>
+      <li><a href="index.html#work">Work Samples</a></li>
+      <li><a href="index.html#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <a href="index.html#work" class="back-link">← Back to Work Samples</a>
+
+    <div class="proj-hero">
+      <div class="proj-hero-top">
+        <div>
+          <p class="eyebrow">CCNAv7 — Enterprise Networking, Security &amp; Automation (ENSA)</p>
+          <h1 class="proj-title">🖧 ENSA Network Configuration Project</h1>
+          <div class="proj-meta">
+            <span class="meta-chip">Cisco Packet Tracer</span>
+            <span class="meta-chip">Cisco IOS</span>
+            <span class="meta-chip">NETLAB+</span>
+            <span class="meta-chip">George Brown Polytechnic</span>
+            <span class="meta-chip">COMP 3136 / COMP 3138</span>
+          </div>
+        </div>
+        <a href="https://github.com/rohailbt/rohailbt.github.io" target="_blank" class="btn btn-ghost btn-sm">View on GitHub →</a>
+      </div>
+      <p class="proj-desc-full">
+        End-of-course Skills Assessment for the CCNAv7 Enterprise Networking, Security, and Automation (ENSA) module.
+        Designed and fully configured a multi-site enterprise network topology in Cisco Packet Tracer, covering dynamic
+        routing, VLAN segmentation, network address translation, access control, and security hardening. The assessment
+        demonstrates readiness for Cisco CCNA certification and industry networking roles.
+      </p>
+    </div>
+
+    <div class="download-box">
+      <div>
+        <p>Cisco Packet Tracer file — open with Packet Tracer 8.x or later</p>
+        <strong>📁 CCNAv7_ENSA_Skills_Assessment_-_Corrected.pkt</strong>
+      </div>
+      <a href="https://github.com/rohailbt/rohailbt.github.io" target="_blank" class="btn">Download .pkt →</a>
+    </div>
+
+    <h2 class="section-sub">Topology Description</h2>
+    <div class="topology-desc">
+      The network topology spans multiple sites with routers, multilayer switches, and end-point devices connected
+      across WAN and LAN segments. Each site is segmented into department VLANs with a centralised core layer handling
+      inter-VLAN routing. Internet connectivity is simulated via a border router running NAT overload. Security is
+      enforced through standard and extended ACLs applied to relevant interfaces, restricting unauthorised traffic
+      between segments. OSPF area 0 is configured across all routers to enable dynamic route advertisement and
+      convergence.
+    </div>
+
+    <h2 class="section-sub">Technologies Configured</h2>
+    <div class="config-grid">
+      <div class="config-card">
+        <div class="config-icon">🔀</div>
+        <p class="config-name">OSPF Dynamic Routing</p>
+        <p class="config-desc">Multi-area OSPF configured across all routers for automatic route advertisement and network convergence.</p>
+      </div>
+      <div class="config-card">
+        <div class="config-icon">🏷️</div>
+        <p class="config-name">VLANs &amp; Trunking</p>
+        <p class="config-desc">Department VLANs configured on switches with 802.1Q trunk links between access and distribution layers.</p>
+      </div>
+      <div class="config-card">
+        <div class="config-icon">🌐</div>
+        <p class="config-name">NAT Overload (PAT)</p>
+        <p class="config-desc">Port Address Translation configured on the border router to enable internet access for all internal hosts.</p>
+      </div>
+      <div class="config-card">
+        <div class="config-icon">🛡️</div>
+        <p class="config-name">ACL Security Policies</p>
+        <p class="config-desc">Standard and extended ACLs applied to restrict inter-VLAN and WAN traffic per security policy.</p>
+      </div>
+      <div class="config-card">
+        <div class="config-icon">📡</div>
+        <p class="config-name">DHCP Services</p>
+        <p class="config-desc">Centralised DHCP server pools configured to automatically assign IPs to end devices across all VLANs.</p>
+      </div>
+      <div class="config-card">
+        <div class="config-icon">✔️</div>
+        <p class="config-name">Connectivity Verification</p>
+        <p class="config-desc">End-to-end connectivity verified using ping, extended ping, traceroute, and Cisco show commands.</p>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a href="https://github.com/rohailbt/rohailbt.github.io" target="_blank" class="btn">View on GitHub →</a>
+      <a href="index.html#work" class="btn btn-ghost">← All Projects</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Rohail Bhatti &nbsp;·&nbsp; <a href="https://github.com/rohailbt" target="_blank">github.com/rohailbt</a> &nbsp;·&nbsp; <a href="mailto:rohailbt@gmail.com">rohailbt@gmail.com</a></p>
+    <p class="sub">© 2026 &nbsp;·&nbsp; George Brown Polytechnic</p>
+  </footer>
+</body>
+</html>
